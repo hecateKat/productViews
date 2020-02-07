@@ -43,7 +43,7 @@ public class Product {
     }
 
     public void addViewsNumber(){
-        viewNumber = viewNumber + 1;
+        ++viewNumber;
     }
 
     public boolean isTypeFemale(){
