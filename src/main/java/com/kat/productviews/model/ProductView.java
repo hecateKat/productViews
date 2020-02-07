@@ -31,13 +31,13 @@ public class ProductView {
 
     public BigDecimal calculateProductPrice(Product product) {
         if (product.isTypeFemale()) {
-            return product.getBasePrice().multiply(DiscountPercent.femaleDiscount).setScale(2, RoundingMode.CEILING);
+            return product.getBasePrice().multiply(DiscountPercent.FEMALE_DISCOUNT).setScale(2, RoundingMode.CEILING);
 
         } else if (product.isTypeMale()) {
-            return product.getBasePrice().multiply(DiscountPercent.maleDiscount).setScale(2, RoundingMode.CEILING);
+            return product.getBasePrice().multiply(DiscountPercent.MALE_DISCOUNT).setScale(2, RoundingMode.CEILING);
 
         } else {
-            return product.getBasePrice().multiply(DiscountPercent.kidDiscount).setScale(2, RoundingMode.CEILING);
+            return product.getBasePrice().multiply(DiscountPercent.KID_DISCOUNT).setScale(2, RoundingMode.CEILING);
         }
     }
 }

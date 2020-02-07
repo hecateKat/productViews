@@ -5,11 +5,7 @@ import com.kat.productviews.entity.Product;
 import com.kat.productviews.enums.Type;
 import com.kat.productviews.model.ProductView;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
@@ -37,9 +33,9 @@ class ProductviewsApplicationTests {
         BigDecimal priceAfterDiscount3 = productView3.calculateProductPrice(product3);
 
         //then
-        Assert.assertEquals(product1.getBasePrice().multiply(DiscountPercent.maleDiscount), priceAfterDiscount1);
-        Assert.assertEquals(product2.getBasePrice().multiply(DiscountPercent.femaleDiscount), priceAfterDiscount2);
-        Assert.assertEquals(product3.getBasePrice().multiply(DiscountPercent.kidDiscount), priceAfterDiscount3);
+        Assert.assertEquals(product1.getBasePrice().multiply(DiscountPercent.MALE_DISCOUNT), priceAfterDiscount1);
+        Assert.assertEquals(product2.getBasePrice().multiply(DiscountPercent.FEMALE_DISCOUNT), priceAfterDiscount2);
+        Assert.assertEquals(product3.getBasePrice().multiply(DiscountPercent.KID_DISCOUNT), priceAfterDiscount3);
 
 
     }

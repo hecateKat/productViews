@@ -1,4 +1,4 @@
-package com.kat.productviews.databasetest;
+package com.kat.productviews.fixtures;
 
 import com.kat.productviews.entity.Product;
 import com.kat.productviews.enums.Type;

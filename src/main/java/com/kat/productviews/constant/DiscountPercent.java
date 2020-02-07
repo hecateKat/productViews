@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class DiscountPercent {
 
-    public static BigDecimal femaleDiscount = new BigDecimal("0.95");
-    public static BigDecimal maleDiscount = new BigDecimal("0.95");
-    public static BigDecimal kidDiscount = new BigDecimal("0.90");
+    public static BigDecimal FEMALE_DISCOUNT = new BigDecimal("0.95");
+    public static BigDecimal MALE_DISCOUNT = new BigDecimal("0.95");
+    public static BigDecimal KID_DISCOUNT = new BigDecimal("0.90");
 
 }
