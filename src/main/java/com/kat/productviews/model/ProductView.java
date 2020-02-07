@@ -7,12 +7,13 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.UUID;
 
 
 @Data
 public class ProductView {
 
-    private Long id;
+    private UUID id;
     private String name;
     private String description;
     private BigDecimal price;
@@ -30,16 +31,13 @@ public class ProductView {
 
     public BigDecimal calculateProductPrice(Product product) {
         if (product.isTypeFemale()) {
-            BigDecimal femaleDiscount = new BigDecimal(DiscountPercent.femaleDiscount);
-            return product.getBasePrice().multiply(femaleDiscount).setScale(2, RoundingMode.CEILING);
+            return product.getBasePrice().multiply(DiscountPercent.femaleDiscount).setScale(2, RoundingMode.CEILING);
 
         } else if (product.isTypeMale()) {
-            BigDecimal maleDiscount = new BigDecimal(DiscountPercent.maleDiscount);
-            return product.getBasePrice().multiply(maleDiscount).setScale(2, RoundingMode.CEILING);
+            return product.getBasePrice().multiply(DiscountPercent.maleDiscount).setScale(2, RoundingMode.CEILING);
 
         } else {
-            BigDecimal kidDiscount = new BigDecimal(DiscountPercent.kidDiscount);
-            return product.getBasePrice().multiply(kidDiscount).setScale(2, RoundingMode.CEILING);
+            return product.getBasePrice().multiply(DiscountPercent.kidDiscount).setScale(2, RoundingMode.CEILING);
         }
     }
 }

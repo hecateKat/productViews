@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class ProductController {
@@ -32,7 +33,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/{id}")
-    ProductView getOneProduct (@PathVariable Long id){
+    ProductView getOneProduct (@PathVariable UUID id){
 
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
@@ -42,7 +43,7 @@ public class ProductController {
     }
 
     @PutMapping("/products/{id}")
-    Product replaceProduct (@RequestBody Product newProduct, @PathVariable Long id) {
+    Product replaceProduct (@RequestBody Product newProduct, @PathVariable UUID id) {
         return productRepository.findById(id)
                 .map(product -> {
                     product.setName(newProduct.getName());
@@ -58,7 +59,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/products/{id}")
-    void deleteProduct (@PathVariable Long id) {
+    void deleteProduct (@PathVariable UUID id) {
         productRepository.deleteById(id);
     }
 }

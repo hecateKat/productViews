@@ -1,9 +1,11 @@
 package com.kat.productviews.constant;
 
+import java.math.BigDecimal;
+
 public class DiscountPercent {
 
-    public static double femaleDiscount = 0.95;
-    public static double maleDiscount = 0.95;
-    public static double kidDiscount = 0.90;
+    public static BigDecimal femaleDiscount = new BigDecimal("0.95");
+    public static BigDecimal maleDiscount = new BigDecimal("0.95");
+    public static BigDecimal kidDiscount = new BigDecimal("0.90");
 
 }
