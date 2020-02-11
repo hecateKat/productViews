@@ -1,5 +1,6 @@
 package com.kat.productviews.controller;
 
+import com.kat.productviews.calculators.ViewCountIncrementation;
 import com.kat.productviews.entity.Product;
 import com.kat.productviews.exceptions.ProductNotFoundException;
 import com.kat.productviews.model.ProductView;
@@ -35,10 +36,11 @@ public class ProductController {
     @GetMapping("/products/{id}")
     ProductView getOneProduct (@PathVariable UUID id){
 
+
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
-        product.addViewsNumber();
-        productRepository.save(product);
+
+        productRepository.save(new ViewCountIncrementation(product).addProductViews());
         return new ProductView(product);
     }
 

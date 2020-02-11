@@ -3,9 +3,7 @@ package com.kat.productviews.entity;
 import com.kat.productviews.enums.Type;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -30,7 +28,9 @@ public class Product {
     @NotNull
     private Type type;
 
-    private int viewNumber = 0;
+    @OneToOne(orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private ViewCount viewCount;
+
 
     public Product() {
     }
@@ -40,10 +40,7 @@ public class Product {
         this.description = description;
         this.basePrice = basePrice;
         this.type = type;
-    }
-
-    public void addViewsNumber(){
-        ++viewNumber;
+        this.viewCount = new ViewCount();
     }
 
     public boolean isTypeFemale(){
