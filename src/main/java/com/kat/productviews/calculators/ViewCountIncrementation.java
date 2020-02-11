@@ -5,13 +5,7 @@ import com.kat.productviews.entity.Product;
 
 public class ViewCountIncrementation {
 
-    private Product product;
-
-    public ViewCountIncrementation(Product product) {
-        this.product = product;
-    }
-
-    public Product addProductViews (){
+    public static Product addProductViews (Product product){
         product.getViewCount().addViews();
         return product;
     }

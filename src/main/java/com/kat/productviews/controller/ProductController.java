@@ -40,7 +40,7 @@ public class ProductController {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
 
-        productRepository.save(new ViewCountIncrementation(product).addProductViews());
+        productRepository.save(ViewCountIncrementation.addProductViews(product));
         return new ProductView(product);
     }
 
