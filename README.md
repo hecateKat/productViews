@@ -18,3 +18,7 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
+
+## Checking functionality
+
+At the start of the application PreloadingProduct are created and showed in logs. They all have a generated UUID number instead of int id. Please copy UUID number to use in "Get" endpoint as an "id".
