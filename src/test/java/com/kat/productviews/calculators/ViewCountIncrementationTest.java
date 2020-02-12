@@ -25,6 +25,18 @@ class ViewCountIncrementationTest {
 
     }
 
+
+    @Test
+    void shouldReturnFalseIfProductIsNew() {
+
+        //given
+        Product product = new Product("quill pen", "goose feather", BigDecimal.valueOf(847425), Type.FEMALE);
+
+        //then
+        Assert.assertNotEquals(product.getViewCount().getViews(), 10);
+
+    }
+
     @Test
     void shouldReturnTrueWhenProductViewEquals10() {
 
@@ -39,6 +51,23 @@ class ViewCountIncrementationTest {
 
         //then
         Assert.assertEquals(product.getViewCount().getViews(), 10);
+
+    }
+
+    @Test
+    void shouldReturnFalseWhenProductViewNotEquals10() {
+
+        //given
+        Product product = new Product("quill pen", "goose feather", BigDecimal.valueOf(847425), Type.FEMALE);
+
+        //when
+
+        for (int i = 0; i<=10; i++){
+            ViewCountIncrementation.addProductViews(product);
+        }
+
+        //then
+        Assert.assertNotEquals(product.getViewCount().getViews(), 10);
 
     }
 }
