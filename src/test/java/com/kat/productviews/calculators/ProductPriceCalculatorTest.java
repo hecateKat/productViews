@@ -33,4 +33,25 @@ class ProductPriceCalculatorTest {
         Assert.assertEquals(product2.getBasePrice().multiply(DiscountPercent.FEMALE_DISCOUNT).setScale(2, RoundingMode.CEILING), calculatedPrice2);
         Assert.assertEquals(product3.getBasePrice().multiply(DiscountPercent.KID_DISCOUNT).setScale(2, RoundingMode.CEILING), calculatedPrice3);
     }
+
+    @Test
+    void shouldReturnFalseWhenCalculatingProductPrice() {
+
+        //given
+        Product product1 = new Product("pencil", "blue pencil", BigDecimal.valueOf(875038575), Type.MALE);
+        Product product2 = new Product("quill pen", "goose feather", BigDecimal.valueOf(847425), Type.FEMALE);
+        Product product3 = new Product("crayon", "multicolor crayon", BigDecimal.valueOf(3.14), Type.KID);
+
+        //when
+        BigDecimal calculatedPrice1 = ProductPriceCalculator.calculateProductPrice(product1);
+        BigDecimal calculatedPrice2 = ProductPriceCalculator.calculateProductPrice(product2);
+        BigDecimal calculatedPrice3 = ProductPriceCalculator.calculateProductPrice(product3);
+
+        //then
+        Assert.assertNotEquals(product1.getBasePrice().multiply(DiscountPercent.MALE_DISCOUNT).setScale(4, RoundingMode.CEILING), calculatedPrice1);
+        Assert.assertNotEquals(product2.getBasePrice().multiply(DiscountPercent.FEMALE_DISCOUNT).setScale(4, RoundingMode.CEILING), calculatedPrice2);
+        Assert.assertNotEquals(product3.getBasePrice().multiply(DiscountPercent.KID_DISCOUNT).setScale(4, RoundingMode.CEILING), calculatedPrice3);
+    }
+
+
 }
