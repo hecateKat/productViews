@@ -2,7 +2,6 @@ package com.kat.productviews.entity;
 
 import com.kat.productviews.enums.Type;
 import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -30,7 +29,6 @@ public class Product {
 
     @OneToOne(orphanRemoval = true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private ViewCount viewCount;
-
 
     public Product() {
     }

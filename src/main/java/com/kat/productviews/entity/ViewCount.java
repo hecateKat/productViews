@@ -1,7 +1,6 @@
 package com.kat.productviews.entity;
 
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Data
