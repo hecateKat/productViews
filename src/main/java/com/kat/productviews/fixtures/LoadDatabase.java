@@ -18,10 +18,9 @@ public class LoadDatabase {
     @Bean
     CommandLineRunner initDatabase(ProductRepository productRepository) {
         return args -> {
-            log.info("Preloading" + productRepository.save(new Product("Watch", "Simple watch", BigDecimal.valueOf(133.53), Type.MALE)));
+            log.info("Preloading" + productRepository.save(new Product("Watch", "Simple watch", BigDecimal.valueOf(13300.53), Type.MALE)));
             log.info("Preloading" + productRepository.save(new Product("Watch", "Black watch", BigDecimal.valueOf(155.45), Type.FEMALE)));
-            log.info("Preloading" + productRepository.save(new Product("Watch", "Unicorn watch", BigDecimal.valueOf(125.50), Type.KID)));
-
+            log.info("Preloading" + productRepository.save(new Product("Watch", "Unicorn watch", BigDecimal.valueOf(1250.00), Type.KID)));
         };
     }
 }
