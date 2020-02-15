@@ -1,18 +1,17 @@
-package com.kat.productviews.calculators;
+package com.kat.productviews.implementation;
 
 import com.kat.productviews.entity.Product;
 import com.kat.productviews.enums.Type;
+import com.kat.productviews.repository.ProductRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.*;
+class ViewCountServiceImplTest {
 
-
-class ViewCountIncrementationTest {
+    private ProductRepository productRepository = Mockito.mock(ProductRepository.class);
 
     @Test
     void shouldReturnTrueIfProductIsNew() {
@@ -25,7 +24,6 @@ class ViewCountIncrementationTest {
 
     }
 
-
     @Test
     void shouldReturnFalseIfProductIsNew() {
 
@@ -37,16 +35,19 @@ class ViewCountIncrementationTest {
 
     }
 
+
     @Test
     void shouldReturnTrueWhenProductViewEquals10() {
 
         //given
         Product product = new Product("quill pen", "goose feather", BigDecimal.valueOf(847425), Type.FEMALE);
+        productRepository.save(product);
+        ViewCountServiceImpl viewCountService = new ViewCountServiceImpl(productRepository);
 
         //when
 
         for (int i = 0; i<10; i++){
-            ViewCountIncrementation.addProductViews(product);
+            viewCountService.addProductViews(product);
         }
 
         //then
@@ -55,15 +56,17 @@ class ViewCountIncrementationTest {
     }
 
     @Test
-    void shouldReturnFalseWhenProductViewNotEquals10() {
+    void shouldReturnFalseWhenProductViewEquals10() {
 
         //given
         Product product = new Product("quill pen", "goose feather", BigDecimal.valueOf(847425), Type.FEMALE);
+        productRepository.save(product);
+        ViewCountServiceImpl viewCountService = new ViewCountServiceImpl(productRepository);
 
         //when
 
-        for (int i = 0; i<=10; i++){
-            ViewCountIncrementation.addProductViews(product);
+        for (int i = 0; i<11; i++){
+            viewCountService.addProductViews(product);
         }
 
         //then
