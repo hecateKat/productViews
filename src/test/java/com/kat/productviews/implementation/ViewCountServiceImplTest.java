@@ -6,7 +6,6 @@ import com.kat.productviews.repository.ProductRepository;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
 import java.math.BigDecimal;
 
 class ViewCountServiceImplTest {
@@ -34,7 +33,6 @@ class ViewCountServiceImplTest {
         Assert.assertNotEquals(product.getViewCount().getViews(), 10);
 
     }
-
 
     @Test
     void shouldReturnTrueWhenProductViewEquals10() {

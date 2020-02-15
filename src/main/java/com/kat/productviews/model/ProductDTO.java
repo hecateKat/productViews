@@ -2,10 +2,7 @@ package com.kat.productviews.model;
 
 import com.kat.productviews.enums.Type;
 import lombok.Data;
-
 import java.math.BigDecimal;
-
-
 
 @Data
 public class ProductDTO {

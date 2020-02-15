@@ -4,7 +4,6 @@ import com.kat.productviews.constant.DiscountPercent;
 import com.kat.productviews.entity.Product;
 import com.kat.productviews.service.PriceCalculatorService;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 
 @Service

@@ -5,6 +5,4 @@ public enum  Type {
     MALE,
     FEMALE,
     KID
-
-
 }

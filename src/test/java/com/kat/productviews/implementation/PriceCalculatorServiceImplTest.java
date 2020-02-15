@@ -1,12 +1,10 @@
 package com.kat.productviews.implementation;
 
-
 import com.kat.productviews.constant.DiscountPercent;
 import com.kat.productviews.entity.Product;
 import com.kat.productviews.enums.Type;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -32,5 +30,4 @@ class PriceCalculatorServiceImplTest {
         Assert.assertEquals(product2.getBasePrice().multiply(DiscountPercent.DISCOUNT_3_PERCENT).setScale(2, RoundingMode.CEILING), calculatedPrice2);
         Assert.assertEquals(product3.getBasePrice().setScale(2, RoundingMode.CEILING), calculatedPrice3);
     }
-
 }

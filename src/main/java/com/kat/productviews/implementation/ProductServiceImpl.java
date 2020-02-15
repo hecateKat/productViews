@@ -7,7 +7,6 @@ import com.kat.productviews.repository.ProductRepository;
 import com.kat.productviews.service.ProductService;
 import com.kat.productviews.service.ViewCountService;
 import org.springframework.stereotype.Service;
-
 import java.util.UUID;
 
 @Service

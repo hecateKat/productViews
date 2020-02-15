@@ -1,7 +1,6 @@
 package com.kat.productviews.fixtures;
 
 import com.kat.productviews.entity.Product;
-import com.kat.productviews.entity.ViewCount;
 import com.kat.productviews.enums.Type;
 import com.kat.productviews.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
